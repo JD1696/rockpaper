@@ -1,0 +1,41 @@
+.demo{
+    color:red;
+}
+
+
+.box{
+    border: 10px solid black;
+    width:200px;
+    height:100px;
+    
+  
+}
+
+#b1,#b2,#b3{
+    background-color: tomato;
+    margin-left: 20px;
+    width:30px;
+}
+.btn{
+ background-color: silver;   
+width:100%;
+height:100%;
+display:flex;
+justify-content: space-around;
+
+}
+
+.bttn{
+    margin-top:10%;
+    
+}
+
+.head{
+    display:flex;
+    width:220px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.eye{
+    width:40px;
+}
