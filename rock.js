@@ -27,19 +27,19 @@ function compareFunction(){
      if (playerInput == "rock" && rresult == "Scissors" || 
          playerInput == "paper" && rresult =="Rock"||
          playerInput == "scissors" && rresult =="Paper"){
-     
-          txtbocks.innerText = "winner"
+          winaudio.play();
+          txtbocks.innerText = "You Win!"
      }
      else if (playerInput =="rock" && rresult =="Rock" ||
               playerInput =="paper" && rresult == "Paper" ||
               playerInput =="scissors" && rresult == "Scissors"){
-               txtbocks.innerText = "Tie"
+               txtbocks.innerText = "Tie Game!"
     
      }
      else if (playerInput=="rock" && rresult =="Paper"||
               playerInput=="paper" && rresult =="Scissors"||
               playerInput=="scissors" && rresult =="Rock"){
-               txtbocks.innerText = "LOSSER"
+               txtbocks.innerText = "You Lose!"
               }
 }
    
@@ -47,6 +47,7 @@ function compareFunction(){
 const paperaudio = new Audio("paper.wav");
 const rockaudio = new Audio("rock.wav");
 const scissoraudio = new Audio("scissors.wav")
+const winaudio = new Audio("cheer.wav")
 
 //    function playAudio(url) {
 //      new Audio(url).play();
@@ -62,32 +63,43 @@ const btn2 = document.querySelector("#b2")
 const btn3 = document.querySelector("#b3")
 const txtbocks = document.querySelector("#textboxt")
 
-
+const playbtn = document.querySelector("#playbutton")
 
 
 
 
 btn1.addEventListener('click', () => {
-     playerInput = "rock"
-     computerPlay()
-     compareFunction()
+     playerInput = "rock" 
      rockaudio.play()
 });
 
 
 btn2.addEventListener('click', () => {
      playerInput = "paper"
-     computerPlay()
-     compareFunction()
      paperaudio.play()
 });
 
 btn3.addEventListener('click', () => {
      playerInput = "scissors"
-     computerPlay()
-     compareFunction()
      scissoraudio.play()
 });
+
+
+
+playbtn.addEventListener("click", () => {
+     computerPlay()
+     compareFunction()
+});
+
+
+
+
+
+
+
+
+
+
 
 
 

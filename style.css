@@ -67,3 +67,16 @@ justify-content: space-around;
     background-size: 100px;
     
 }
+#playbuttonbox{
+    height:100px;
+    width:600px;
+    display:flex;
+    justify-content: center;
+    padding: 10px;
+}
+#playbutton{
+    width:50px;
+    height:50px;
+    background-color:lightcoral;
+
+}
