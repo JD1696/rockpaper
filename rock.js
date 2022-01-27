@@ -44,35 +44,16 @@ function compareFunction(){
 }
    
 
-console.log(1 === 1)
+const paperaudio = new Audio("paper.wav");
+const rockaudio = new Audio("rock.wav");
+const scissoraudio = new Audio("scissors.wav")
 
-
-
+//    function playAudio(url) {
+//      new Audio(url).play();
+//    }
   
 
-// function clickEvent1(){
-//      playerInput = "rock";
-//      console.log(playerInput);
-//      computerPlay();
-//      compareFunction()
 
-// }
-         
-// function clickEvent2(){
-//      playerInput = "paper";
-//      console.log(playerInput);
-//      computerPlay();
-//      compareFunction()
-
-// }
-
-// function clickEvent3(){
-//      playerInput = "scissors";
-//      console.log(playerInput);
-//      computerPlay();
-//      compareFunction()
-
-// }
 
 const btn1 = document.querySelector("#b1")
 
@@ -90,7 +71,7 @@ btn1.addEventListener('click', () => {
      playerInput = "rock"
      computerPlay()
      compareFunction()
-     
+     rockaudio.play()
 });
 
 
@@ -98,12 +79,14 @@ btn2.addEventListener('click', () => {
      playerInput = "paper"
      computerPlay()
      compareFunction()
+     paperaudio.play()
 });
 
 btn3.addEventListener('click', () => {
      playerInput = "scissors"
      computerPlay()
      compareFunction()
+     scissoraudio.play()
 });
 
 
