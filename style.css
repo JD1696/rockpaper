@@ -80,3 +80,23 @@ justify-content: space-around;
     background-color:lightcoral;
 
 }
+
+
+
+#GARRET{
+    display:flex;
+    flex-align: space-around;
+    width:600px;
+    justify-content: center;
+    height: 24px;
+    
+
+}
+
+#playerOption,#enemyOption{
+    width:100px;
+    border: 1px solid black;
+    text-align:center;
+    
+
+}

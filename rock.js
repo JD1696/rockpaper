@@ -4,6 +4,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
      // Your code to run since DOM is loaded and ready
  
 
+  
+   let count = 0;
+
+function checker(){
+     if (count === 5){
+          alert("chcker")
+     }
+}
+
+
+
+
+
+     
 
 
 function computerPlay(){
@@ -18,8 +32,19 @@ function computerPlay(){
          rresult = "Scissors";
     }
     console.log(rresult);
-    return rresult;
+    
+}
 
+function enemyResult(){
+     if (rresult === "Rock"){
+          emmeny.innerText = "Rock";
+     }
+     else if (rresult === "Paper"){
+          emmeny.innerText = "Paper";
+     }
+     else if (rresult === "Scissors"){
+          emmeny.innerText = "Scissors";
+     }
 }
 
 
@@ -43,27 +68,29 @@ function compareFunction(){
               }
 }
    
-
+// sound effects
 const paperaudio = new Audio("paper.wav");
 const rockaudio = new Audio("rock.wav");
 const scissoraudio = new Audio("scissors.wav")
 const winaudio = new Audio("cheer.wav")
 
-//    function playAudio(url) {
-//      new Audio(url).play();
-//    }
-  
-
-
 
 const btn1 = document.querySelector("#b1")
-
 const btn2 = document.querySelector("#b2")
-
 const btn3 = document.querySelector("#b3")
 const txtbocks = document.querySelector("#textboxt")
-
 const playbtn = document.querySelector("#playbutton")
+
+
+const emmeny = document.querySelector("#enemyOption")
+const frenly = document.querySelector("#playerOption")
+
+
+
+function gtest(){
+     emmeny.innerText = "Woot!"
+     frenly.innerText = "Poot!"
+}
 
 
 
@@ -71,28 +98,51 @@ const playbtn = document.querySelector("#playbutton")
 btn1.addEventListener('click', () => {
      playerInput = "rock" 
      rockaudio.play()
-});
+     frenly.innerText = "rock"
 
+});
 
 btn2.addEventListener('click', () => {
      playerInput = "paper"
      paperaudio.play()
+     frenly.innerText = "paper"
 });
 
 btn3.addEventListener('click', () => {
      playerInput = "scissors"
      scissoraudio.play()
+     frenly.innerText = "Scissors"
 });
-
-
 
 playbtn.addEventListener("click", () => {
+     count++;
+     checker()
      computerPlay()
      compareFunction()
+     enemyResult()
 });
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// playbtn.addEventListener("click", () =>{
+//         count++; 
+//         checker() 
+// });
 
 
 
