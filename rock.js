@@ -3,33 +3,37 @@
 
 
 
-function gtest(){
-     alert("test")
-}
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function(event) {
      // Your code to run since DOM is loaded and ready
   
 
 
-     
+     // if r,p,s is pressed, value = 1, if value=1 playbtn= true//
+
+
+
+
+
+let pressedorNot = 0;
+
+
+
 
 
 function computerPlay(){
     let result = Math.floor(Math.random() * 3) + 1;
     if (result == 1){
          rresult = "Rock";
+         rockaudio.play();
     }
     else if(result == 2){
          rresult = "Paper";
+         paperaudio.play()
     }
     else if (result == 3){
          rresult = "Scissors";
+         scissoraudio.play()
     }
     
     
@@ -53,6 +57,44 @@ let count =0;
 let playerScore = 0;
 let compScore = 0;
 
+// if playerscore changes, then change psReadout     after turn, fetch playerscore, convert
+
+
+
+function scoreRead(){
+     psReadout.innerText = "Player: " + playerScore.toString();
+     cmReadout.innerText = "Computer: " + compScore.toString();
+     roundReadout.innerText = "Round: " + count.toString();
+    
+}
+
+function lock(){
+     if (count === 5){
+          playbtn.disabled = true;
+     }
+     else {
+          playbtn.disabled = false;
+     }
+}
+
+
+
+
+function reset(){
+     count = 0;
+     playerScore = 0;
+     compScore = 0;
+     txtbocks.innerText = "";
+     frenly.innerText = "";
+     emmeny.innerText = "";
+     lock();
+     scoreRead();
+}
+
+
+
+
+
 function countGoup(){
      count++;
 }
@@ -66,7 +108,7 @@ function compareFunction(){
      
      
     
-     function checker(){
+      function checker(){
          
           function score1(){
                console.log("score");
@@ -81,37 +123,25 @@ function compareFunction(){
                else if(compScore === playerScore){
                     txtbocks.innerText = "Tie Game!"
                }
-     
-               
+                    
           }
-
-
-
-
-
 
 
           if (count === 5){
               
                score1()
           }
-     }
+     } 
     
-    
+
+      checker();
      
-     
-     
-     
-     
-     checker();
-     
-     
-     
-   
+        
      if (playerInput == "rock" && rresult == "Scissors" || 
          playerInput == "paper" && rresult =="Rock"||
          playerInput == "scissors" && rresult =="Paper"){
               console.log("player round");
+
           
           playerScore++;
      }
@@ -127,6 +157,8 @@ function compareFunction(){
                console.log("computer round");
                compScore++;
               };
+      scoreRead()
+      lock()
               
 }
    
@@ -136,24 +168,55 @@ const rockaudio = new Audio("rock.wav");
 const scissoraudio = new Audio("scissors.wav")
 const winaudio = new Audio("cheer.wav")
 const loseraudio = new Audio("loser.wav")
+//
 
-
+// Buttons
 const btn1 = document.querySelector("#b1")
 const btn2 = document.querySelector("#b2")
 const btn3 = document.querySelector("#b3")
 const txtbocks = document.querySelector("#textboxt")
 const playbtn = document.querySelector("#playbutton")
+const resetbtn = document.querySelector("#resetbutton")
+//
 
-
+// output 
 const emmeny = document.querySelector("#enemyOption")
 const frenly = document.querySelector("#playerOption")
+const psReadout = document.querySelector("#pRead")
+const cmReadout = document.querySelector("#compRead")
+const roundReadout = document.querySelector("#rRead")
 
 
 
-function gtest(){
-     emmeny.innerText = "Woot!"
-     frenly.innerText = "Poot!"
+
+
+
+
+
+
+
+function prezzed(){
+
+
+
+     if(pressedorNot < 1){
+          playbtn.disabled = true;
+     }
+     else{
+          playbtn.disabled = false;
+     }
+     
 }
+
+
+
+function unpress(){
+     
+}
+
+
+
+prezzed();
 
 
 
@@ -162,6 +225,8 @@ btn1.addEventListener('click', () => {
      playerInput = "rock" 
      rockaudio.play()
      frenly.innerText = "rock"
+     pressedorNot = 1;
+     prezzed()
 
 });
 
@@ -169,12 +234,16 @@ btn2.addEventListener('click', () => {
      playerInput = "paper"
      paperaudio.play()
      frenly.innerText = "paper"
+     pressedorNot = 1;
+     prezzed()
 });
 
 btn3.addEventListener('click', () => {
      playerInput = "scissors"
      scissoraudio.play()
      frenly.innerText = "Scissors"
+     pressedorNot = 1;
+     prezzed()
 });
 
 playbtn.addEventListener("click", () => {
@@ -183,6 +252,12 @@ playbtn.addEventListener("click", () => {
      computerPlay()
      compareFunction()
      enemyResult()
+     playbtn.disabled = true;
+     
+});
+
+resetbtn.addEventListener("click",() =>{
+     reset();
 });
 
 
@@ -192,30 +267,7 @@ playbtn.addEventListener("click", () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// playbtn.addEventListener("click", () =>{
-//         count++; 
-//         checker() 
-// });
-
-
-
-
-
-
-
-
-
-
+//end
 
 });
 
