@@ -161,7 +161,7 @@ function compareFunction(){
          playerInput == "paper" && rresult =="Rock"||
          playerInput == "scissors" && rresult =="Paper"){
               console.log("player round");
-              
+              txtbocks.innerText="Player wins this round";
 
           
           playerScore++;
@@ -170,14 +170,14 @@ function compareFunction(){
               playerInput =="paper" && rresult == "Paper" ||
               playerInput =="scissors" && rresult == "Scissors"){
                console.log("draw round");
-               
+               txtbocks.innerText="This round is a tie";
     
      }
      else if (playerInput=="rock" && rresult =="Paper"||
               playerInput=="paper" && rresult =="Scissors"||
               playerInput=="scissors" && rresult =="Rock"){
                console.log("computer round");
-              
+               txtbocks.innerText="Computer wins this round";
                compScore++;
               };
       
@@ -253,6 +253,7 @@ btn1.addEventListener('click', () => {
      frenly.innerText = "rock"
      pressedorNot = 1;
      prezzed()
+     txtbocks.innerText ="";
 
 });
 
@@ -262,6 +263,7 @@ btn2.addEventListener('click', () => {
      frenly.innerText = "paper"
      pressedorNot = 1;
      prezzed()
+     txtbocks.innerText ="";
 });
 
 btn3.addEventListener('click', () => {
@@ -270,6 +272,7 @@ btn3.addEventListener('click', () => {
      frenly.innerText = "Scissors"
      pressedorNot = 1;
      prezzed()
+     txtbocks.innerText ="";
 });
 
 playbtn.addEventListener("click", () => {
