@@ -63,7 +63,7 @@ position:relative;
 }
 #textboxt{
     text-align: center;
-    width:600px;
+    width:100px;
 }
 
 
@@ -87,7 +87,7 @@ position:relative;
     height:100px;
     width:600px;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 10px;
 }
 #playbutton,#resetbutton{
@@ -140,5 +140,31 @@ body{
     margin: 0;
     display:flex;
     justify-content: space-around;
+    
+}
+
+#tally{
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 140px;
+    border: 1px solid black;
+    border-bottom: 0px;
+    position: relative;
+    
+    border-left: 0px;
+    border-right: 0px;
+    width: 100%;
+    margin: 0px;
+}
+#tallybox{
+    border: px solid black;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    
     
 }

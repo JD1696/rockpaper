@@ -65,15 +65,23 @@ function scoreRead(){
      psReadout.innerText = "Player: " + playerScore.toString();
      cmReadout.innerText = "Computer: " + compScore.toString();
      roundReadout.innerText = "Round: " + count.toString();
+     tally01.innerText = "Player: " + tally1.toString();
+     tally02.innerText = "Computer: " + tally2.toString();
     
 }
 
 function lock(){
      if (count === 5){
           playbtn.disabled = true;
+          btn1.disabled = true;
+          btn2.disabled = true;
+          btn3.disabled = true;
      }
      else {
           playbtn.disabled = false;
+          btn1.disabled = false;
+          btn2.disabled = false;
+          btn3.disabled = false;
      }
 }
 
@@ -100,6 +108,16 @@ function countGoup(){
 }
 
 
+let tally1 = 0;
+let tally2 = 0;
+
+
+function tallyCheck(){
+
+}
+
+
+
 
 
 function compareFunction(){
@@ -113,15 +131,17 @@ function compareFunction(){
           function score1(){
                console.log("score");
                if (playerScore > compScore){
-                   txtbocks.innerText = "Winner!"
-                   winaudio.play(); 
+                    txtbocks.innerText = "Winner!"
+                   winaudio.play();
+                   tally1++; 
                }
                else if(compScore > playerScore){
-                    txtbocks.innerText = "Loser!"
+                     txtbocks.innerText = "Loser!"
                     loseraudio.play();
+                    tally2++;
                }
                else if(compScore === playerScore){
-                    txtbocks.innerText = "Tie Game!"
+                     txtbocks.innerText = "Tie Game!"
                }
                     
           }
@@ -134,13 +154,14 @@ function compareFunction(){
      } 
     
 
-      checker();
+      
      
         
      if (playerInput == "rock" && rresult == "Scissors" || 
          playerInput == "paper" && rresult =="Rock"||
          playerInput == "scissors" && rresult =="Paper"){
               console.log("player round");
+              
 
           
           playerScore++;
@@ -149,15 +170,20 @@ function compareFunction(){
               playerInput =="paper" && rresult == "Paper" ||
               playerInput =="scissors" && rresult == "Scissors"){
                console.log("draw round");
+               
     
      }
      else if (playerInput=="rock" && rresult =="Paper"||
               playerInput=="paper" && rresult =="Scissors"||
               playerInput=="scissors" && rresult =="Rock"){
                console.log("computer round");
+              
                compScore++;
               };
-      scoreRead()
+      
+              checker();
+              scoreRead()
+
       lock()
               
 }
@@ -185,6 +211,8 @@ const frenly = document.querySelector("#playerOption")
 const psReadout = document.querySelector("#pRead")
 const cmReadout = document.querySelector("#compRead")
 const roundReadout = document.querySelector("#rRead")
+const tally01 = document.querySelector("#tally1")
+const tally02 = document.querySelector("#tally2")
 
 
 
@@ -210,9 +238,7 @@ function prezzed(){
 
 
 
-function unpress(){
-     
-}
+
 
 
 
